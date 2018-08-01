@@ -18,7 +18,8 @@
   },
   "homepage": "https://github.com/sbinlondon/FAC-Week5-MSJK#readme",
   "dependencies": {
-    "dotenv": "^6.0.0"
+    "dotenv": "^6.0.0",
+    "request": "^2.87.0"
   },
   "devDependencies": {
     "codecov": "^3.0.4",
