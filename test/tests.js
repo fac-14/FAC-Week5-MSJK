@@ -1,5 +1,6 @@
 const tape = require('tape');
 require('dotenv').config();
+const envJS = require('../env.js');
 
 tape('check tape is working', (t) => {
   const expected = 2;
