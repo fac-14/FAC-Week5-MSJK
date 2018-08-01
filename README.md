@@ -3,6 +3,8 @@
 ![](https://travis-ci.org/sbinlondon/FAC-Week5-MSJK.svg?branch=master)
 [![codecov](https://codecov.io/gh/sbinlondon/FAC-Week5-MSJK/branch/master/graph/badge.svg)](https://codecov.io/gh/sbinlondon/FAC-Week5-MSJK)
 
+![Jason Momoa is the universe's GIFt to humankind](https://media.giphy.com/media/3xz2BtsGiAovlaCsRG/giphy.gif)
+
 ## User story
 
 * I can enter a term to search
