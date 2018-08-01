@@ -3,11 +3,29 @@
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>MSJK</title>
+  <title>MSJK News Comparer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
 </head>
 <body>
+  <main>
+  <h1>News Comparison Site</h1>
+  <section id="search">
+    <form action="/results" method="get">
+      <label for="input">Search term:</label>
+      <input type="text" id="input" required autocomplete="off" placeholder="Brexit" value="Brexit">
+      <button type="submit" id="submit">Search</button>
+    </form>
+  </section>
+  <section id="results">
+    <div id="news-1">
+      <!-- WAITING FOR CONTENT FROM APIS -->
+    </div>
+    <div id="news-2">
+      <!-- WAITING FOR CONTENT FROM APIS -->
+    </div>
+  </section>
+  </main>
   <script src="logic.js"></script>
 </body>
 </html>
