@@ -4,7 +4,7 @@
   "description": "API project",
   "main": "src/server.js",
   "scripts": {
-    "test": "nyc tap ./test/*.js"
+    "test": "tape ./test/*.js | tap-spec"
   },
   "repository": {
     "type": "git",
@@ -16,6 +16,9 @@
     "url": "https://github.com/sbinlondon/FAC-Week5-MSJK/issues"
   },
   "homepage": "https://github.com/sbinlondon/FAC-Week5-MSJK#readme",
+  "dependencies": {
+    "dotenv": "^6.0.0"
+  },
   "devDependencies": {
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^13.0.0",
