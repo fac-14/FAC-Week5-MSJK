@@ -1,6 +1,7 @@
 # News Comparison Website
 
 ![](https://travis-ci.org/sbinlondon/FAC-Week5-MSJK.svg?branch=master)
+[![codecov](https://codecov.io/gh/sbinlondon/FAC-Week5-MSJK/branch/master/graph/badge.svg)](https://codecov.io/gh/sbinlondon/FAC-Week5-MSJK)
 
 ## User story
 
