@@ -1,0 +1,28 @@
+{
+  "name": "fac-week5-msjk",
+  "version": "1.0.0",
+  "description": "API project",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sbinlondon/FAC-Week5-MSJK.git"
+  },
+  "author": "Michael, Sangita, Jessie, and Kate",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sbinlondon/FAC-Week5-MSJK/issues"
+  },
+  "homepage": "https://github.com/sbinlondon/FAC-Week5-MSJK#readme",
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^13.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "nyc": "^12.0.2",
+    "supertest": "^3.1.0",
+    "tap-spec": "^5.0.0",
+    "tape": "^4.9.1"
+  }
+}
