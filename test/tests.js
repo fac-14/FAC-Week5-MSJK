@@ -8,7 +8,7 @@ tape('check tape is working', (t) => {
 });
 
 tape('check environment vars are set', (t) => {
-  t.equal((process.env.GUARDIAN === 'undefined'), false, 'Guardian API key should not be undefined');
-  t.equal((process.env.NYTIMES === 'undefined'), false, 'NY Times API key should not be undefined');
+  t.equal((process.env.GUARDIAN === undefined), false, 'Guardian API key should not be undefined');
+  t.equal((process.env.NYTIMES === undefined), false, 'NY Times API key should not be undefined');
   t.end();
 })
