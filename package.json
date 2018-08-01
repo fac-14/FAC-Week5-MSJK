@@ -2,9 +2,9 @@
   "name": "fac-week5-msjk",
   "version": "1.0.0",
   "description": "API project",
-  "main": "index.js",
+  "main": "src/server.js",
   "scripts": {
-    "test": "npm test"
+    "test": "nyc tap ./test/*.js"
   },
   "repository": {
     "type": "git",
