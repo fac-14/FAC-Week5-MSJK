@@ -1,16 +1,49 @@
 # News Comparison Website
 
+> A handy site that retrieves the top 3 news articles on your chosen topic from both the Guardian and the New York Times.
+
 ![](https://travis-ci.org/sbinlondon/FAC-Week5-MSJK.svg?branch=master)
 [![codecov](https://codecov.io/gh/sbinlondon/FAC-Week5-MSJK/branch/master/graph/badge.svg)](https://codecov.io/gh/sbinlondon/FAC-Week5-MSJK)
 
 ![Jason Momoa is the universe's GIFt to humankind](https://media.giphy.com/media/3xz2BtsGiAovlaCsRG/giphy.gif)
 
-## User story
+### [Online site](https://tranquil-tor-14764.heroku.com/)
+
+### Development Setup
+
+To run our project locally, follow these steps:
+
+In your terminal, write:
+```
+git clone https://github.com/sbinlondon/FAC-Week5-MSJK.git
+```
+```
+npm install
+```
+You will need to setup a .env ('dotenv') file in the root directory and set the variables `GUARDIAN` and `NYTIMES` with valid API keys.
+
+[Guardian API](https://open-platform.theguardian.com/)
+
+[NYTimes Article Search API](https://developer.nytimes.com/article_search_v2.json)
+
+To run on localhost from within the root of the directory:
+```
+node src/server.js
+```
+Go to http://localhost:3000 to see your locally hosted version.
+
+#### To Run the test suite
+```
+npm test
+```
+Tests are run with the npm modules: tape, tap-spec, supertest and nyc.
+
+## User stories
 
 * I can enter a term to search
 * This term will be sent to two news sites
-* I will receive the top 3-5 articles from each site based on my search term
-* I will be able to read the headline, author, date published, and see the hero image on the page
+* I will receive the top 3 articles from each site based on my search term
+* I will be able to read the headline, date published, and see the hero image on the page
 * I will be able to click a link to read the full article
 
 ## The brief
@@ -19,7 +52,7 @@ _Must-haves_
 
 :white_check_mark: Use at least 1 API
 
-:o: Make your API calls from the back-end using the Request module (or one you build yourself)
+:white_check_mark: Make your API calls from the back-end using the Request module (or one you build yourself)
 
 :white_check_mark: Your server should contain a minimum of 2 routes
 
@@ -74,7 +107,19 @@ _Stretch goals 😊:_
 * Kate and Michael work on /results route that triggers API calls to Guardian and NYC
 * Kate and Michael create custom 404 page and redirect to it
 * Jessie and Sangita work on parser for API JSON objects
+* After lunch we pulled all changes and set about integrating the different modules
+* After a few additional callbacks - EUREKA! 
+* ... BUT we had hit our request limit for the NYTimes in the process 😑
+* Jessie and Michael frantically tried to increase test coverage
+* Kate and Sangita wrangled a beautiful layout
 
 ## Challenges
 
+Testing.
+
+But we did figure out how to test an asynchronous function in tape! :tada:
+
 ## Lessons
+
+* Travis has a case-sensitive filesystem!
+* Getting matching output from 2 different APIs doesn't always go smoothly! e.g. one source may always show an article's author, another may not. 
