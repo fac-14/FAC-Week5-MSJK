@@ -44,6 +44,23 @@ main {
     flex-direction: column;
 }
 
+#pageTwo {
+    display: flex;
+    text-align: center;
+    width: 100px;
+    position: absolute;
+    bottom: 0px;
+}
+ 
+#pageThree {
+    display: flex;
+    text-align: center;
+    width: 100px;
+    position: absolute;
+    bottom: 0px;
+    left: 150px;
+}
+
 #search {
     text-align: center;
     background: #ECF0F1;
@@ -62,7 +79,6 @@ main {
     margin: 0 auto;
     width: 50%;
     padding: 48px;
-    border: 2px solid red;
     background-color: #FFFFFF;
     position: relative;
 }

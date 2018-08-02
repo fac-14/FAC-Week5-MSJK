@@ -4,6 +4,8 @@ const submitButton = document.getElementById('submit');
 const newsDiv1 = document.getElementById('news-1');
 const newsDiv2 = document.getElementById('news-2');
 
+//const pageThreeButton = document.getElementById('pageThree');
+
 // GENERIC XHR
 
 function genericXHR(query, cb) {
@@ -57,11 +59,35 @@ function appendLink(parent, href, linkText) {
   parent.appendChild(link);
 }
 
+function showPageTwo() {
+  const articleOne = document.getElementById('child-1');
+  const articleTwo = document.getElementById('child-2');
+  const articleThree = document.getElementById('child-3');
+  articleOne.style.display = "none";
+  articleTwo.style.display = "flex";
+  articleThree.style.display = "none";
+}
+
+function showPageThree() {
+  const articleOne = document.getElementById('child-1');
+  const articleTwo = document.getElementById('child-2');
+  const articleThree = document.getElementById('child-3');
+  articleOne.style.display = "none";
+  articleTwo.style.display = "none";
+  articleThree.style.display = "flex";
+}
+
 function appendPagination() {
   const pageTwo = document.createElement('button');
   pageTwo.setAttribute('id', 'pageTwo');
+  pageTwo.setAttribute('onclick', 'showPageTwo()');
   pageTwo.textContent = '2';
   newsDiv1.appendChild(pageTwo);
+  const pageThree = document.createElement('button');
+  pageThree.setAttribute('id', 'pageThree');
+  pageThree.setAttribute('onclick', 'showPageThree()');
+  pageThree.textContent = '3';
+  newsDiv1.appendChild(pageThree);
 }
 
 //RENDER CALLBACK FROM XHR
@@ -83,6 +109,7 @@ function renderXHRCallback(response) {
     appendImage(document.getElementById(('child-' + i)), response.NYTimes[i-4].img_url, 'article image');
     appendLink(document.getElementById(('child-' + i)), response.NYTimes[i-4].link_url, 'See full article');
   };
+  appendPagination();
 }
 
 // FUNCTION TO GRAB INPUT FROM SEARCH FIELD
@@ -96,3 +123,19 @@ submitButton.addEventListener('click', (event) => {
   genericXHR(searchTerm, renderXHRCallback);
 // renderXHRCallback(exampleResponse);
 });
+
+// const pageTwoButton = document.getElementById('pageTwo');
+
+// pageTwoButton.addEventListener('click', (event) => {
+//   event.preventDefault();
+//   showPageTwo();
+// });
+
+
+
+// const pageThreeButton = document.getElementById('pageThree');
+
+// pageThreeButton.addEventListener('click', (event) => {
+//   event.preventDefault();
+//   showPageThree();
+// });
