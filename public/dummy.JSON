@@ -1,0 +1,34 @@
+{
+  "Guardian": [
+    {
+      "heading": "A news article about something relevant",
+      "author": "Jimmy J Jackson",
+      "date": "XX-XX-XXXX",
+      "img_url": "url...",
+      "link_url": "url..."
+    },
+    {
+      "heading": "A second article about something mentioning the query",
+      "author": "Kate Beard",
+      "date": "XX-XX-XXXX",
+      "img_url": "url...",
+      "link_url": "url..."
+    }
+  ],
+  "NYTimes": [
+    {
+      "heading": "A news article about something relevant",
+      "author": "Jessie Beech",
+      "date": "XX-XX-XXXX",
+      "img_url": "url...",
+      "link_url": "url..."
+    },
+    {
+      "heading": "A second article about something mentioning the query",
+      "author": "Second Author",
+      "date": "XX-XX-XXXX",
+      "img_url": "url...",
+      "link_url": "url..."
+    }
+  ]
+}
