@@ -59,7 +59,16 @@ function appendLink(parent, href, linkText) {
   parent.appendChild(link);
 }
 
-function showPageTwo() {
+function showPageOneDivOne() {
+  const articleOne = document.getElementById('child-1');
+  const articleTwo = document.getElementById('child-2');
+  const articleThree = document.getElementById('child-3');
+  articleOne.style.display = "flex";
+  articleTwo.style.display = "none";
+  articleThree.style.display = "none";
+}
+
+function showPageTwoDivOne() {
   const articleOne = document.getElementById('child-1');
   const articleTwo = document.getElementById('child-2');
   const articleThree = document.getElementById('child-3');
@@ -68,7 +77,7 @@ function showPageTwo() {
   articleThree.style.display = "none";
 }
 
-function showPageThree() {
+function showPageThreeDivOne() {
   const articleOne = document.getElementById('child-1');
   const articleTwo = document.getElementById('child-2');
   const articleThree = document.getElementById('child-3');
@@ -77,17 +86,66 @@ function showPageThree() {
   articleThree.style.display = "flex";
 }
 
+function showPageOneDivTwo() {
+  const articleOne = document.getElementById('child-4');
+  const articleTwo = document.getElementById('child-5');
+  const articleThree = document.getElementById('child-6');
+  articleOne.style.display = "flex";
+  articleTwo.style.display = "none";
+  articleThree.style.display = "none";
+}
+
+function showPageTwoDivTwo() {
+  const articleOne = document.getElementById('child-4');
+  const articleTwo = document.getElementById('child-5');
+  const articleThree = document.getElementById('child-6');
+  articleOne.style.display = "none";
+  articleTwo.style.display = "flex";
+  articleThree.style.display = "none";
+}
+
+function showPageThreeDivTwo() {
+  const articleOne = document.getElementById('child-4');
+  const articleTwo = document.getElementById('child-5');
+  const articleThree = document.getElementById('child-6');
+  articleOne.style.display = "none";
+  articleTwo.style.display = "none";
+  articleThree.style.display = "flex";
+}
+
 function appendPagination() {
-  const pageTwo = document.createElement('button');
-  pageTwo.setAttribute('id', 'pageTwo');
-  pageTwo.setAttribute('onclick', 'showPageTwo()');
-  pageTwo.textContent = '2';
-  newsDiv1.appendChild(pageTwo);
-  const pageThree = document.createElement('button');
-  pageThree.setAttribute('id', 'pageThree');
-  pageThree.setAttribute('onclick', 'showPageThree()');
-  pageThree.textContent = '3';
-  newsDiv1.appendChild(pageThree);
+  // div 1 guardian
+  const pageOneDiv1 = document.createElement('button');
+  pageOneDiv1.setAttribute('id', 'pageOneDiv1');
+  pageOneDiv1.setAttribute('onclick', 'showPageOneDivOne()');
+  pageOneDiv1.textContent = '1';
+  newsDiv1.appendChild(pageOneDiv1);
+  const pageTwoDiv1 = document.createElement('button');
+  pageTwoDiv1.setAttribute('id', 'pageTwoDiv1');
+  pageTwoDiv1.setAttribute('onclick', 'showPageTwoDivOne()');
+  pageTwoDiv1.textContent = '2';
+  newsDiv1.appendChild(pageTwoDiv1);
+  const pageThreeDiv1 = document.createElement('button');
+  pageThreeDiv1.setAttribute('id', 'pageThreeDiv1');
+  pageThreeDiv1.setAttribute('onclick', 'showPageThreeDivOne()');
+  pageThreeDiv1.textContent = '3';
+  newsDiv1.appendChild(pageThreeDiv1);
+  // div 2 nytimes
+  const pageOneDiv2 = document.createElement('button');
+  pageOneDiv2.setAttribute('id', 'pageOneDiv2');
+  pageOneDiv2.setAttribute('onclick', 'showPageOneDivTwo()');
+  pageOneDiv2.textContent = '1';
+  newsDiv2.appendChild(pageOneDiv2);
+  const pageTwoDiv2 = document.createElement('button');
+  pageTwoDiv2.setAttribute('id', 'pageTwoDiv2');
+  pageTwoDiv2.setAttribute('onclick', 'showPageTwoDivTwo()');
+  pageTwoDiv2.textContent = '2';
+  newsDiv2.appendChild(pageTwoDiv2);
+  const pageThreeDiv2 = document.createElement('button');
+  pageThreeDiv2.setAttribute('id', 'pageThreeDiv2');
+  pageThreeDiv2.setAttribute('onclick', 'showPageThreeDivTwo()');
+  pageThreeDiv2.textContent = '3';
+  newsDiv2.appendChild(pageThreeDiv2);
 }
 
 //RENDER CALLBACK FROM XHR
@@ -123,19 +181,3 @@ submitButton.addEventListener('click', (event) => {
   genericXHR(searchTerm, renderXHRCallback);
 // renderXHRCallback(exampleResponse);
 });
-
-// const pageTwoButton = document.getElementById('pageTwo');
-
-// pageTwoButton.addEventListener('click', (event) => {
-//   event.preventDefault();
-//   showPageTwo();
-// });
-
-
-
-// const pageThreeButton = document.getElementById('pageThree');
-
-// pageThreeButton.addEventListener('click', (event) => {
-//   event.preventDefault();
-//   showPageThree();
-// });
