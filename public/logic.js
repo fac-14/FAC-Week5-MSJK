@@ -3,35 +3,6 @@
 const submitButton = document.getElementById('submit');
 const newsDiv1 = document.getElementById('news-1');
 const newsDiv2 = document.getElementById('news-2');
-// FOR TESTING BEFORE APIS ARE READY
-// let exampleResponse = {
-//   Guardian: [{
-//     heading: 'A news article about something relevant',
-//     author: 'Jimmy J Jackson',
-//     date: 'XX-XX-XXXX',
-//     img_url: 'url...',
-//     link_url: 'url...',
-//   }, {
-//     heading: 'A second article about something mentioning the query',
-//     author: 'Kate Beard',
-//     date: 'XX-XX-XXXX',
-//     img_url: 'url...',
-//     link_url: 'url...',
-//   }],
-//   NYTimes: [{
-//     heading: 'A news article about something relevant',
-//     author: 'Jessie Beech',
-//     date: 'XX-XX-XXXX',
-//     img_url: 'url...',
-//     link_url: 'url...',
-//   }, {
-//     heading: 'A second article about something mentioning the query',
-//     author: 'Second Author',
-//     date: 'XX-XX-XXXX',
-//     img_url: 'url...',
-//     link_url: 'url...',
-//   }],
-// };
 
 // GENERIC XHR
 
@@ -48,6 +19,14 @@ function genericXHR(query, cb) {
   };
   xhr.open('GET', url, true);
   xhr.send();
+}
+function deleteChildren() {
+  while (newsDiv1.firstChild) {
+    newsDiv1.removeChild(newsDiv1.firstChild);
+  }
+  while (newsDiv2.firstChild) {
+    newsDiv2.removeChild(newsDiv2.firstChild);
+  }
 }
 
 function appendTextElement(parent, elementType, elementTextContent) {
@@ -94,6 +73,7 @@ function renderXHRCallback(response) {
 
 submitButton.addEventListener('click', (event) => {
   event.preventDefault();
+  deleteChildren();
   const searchTerm = document.getElementById('input').value;
   // console.log(searchTerm);
   // Makes XHR with query and invokes render as callback
