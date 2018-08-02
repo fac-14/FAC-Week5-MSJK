@@ -64,18 +64,7 @@ main {
     padding: 48px;
     border: 2px solid red;
     background-color: #FFFFFF;
-}
-
-#news-1 > img {
-    width: 320px;
-    height: auto;
-    margin: 0 auto;
-}
-
-#news-2 > img {
-    width: 320px;
-    height: auto;
-    margin: 0 auto;
+    position: relative;
 }
 
 #fourohfour {
@@ -91,4 +80,98 @@ main {
     height: auto;
     margin: 0 auto;
     padding: 16px;
+}
+
+#child-1 {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+#child-1 > img {
+    width: 320px;
+    height: auto;
+    margin: 0 auto;
+}
+
+#child-2 {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+#child-2 > img {
+    width: 320px;
+    height: auto;
+    margin: 0 auto;
+}
+
+#child-3 {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+#child-3 > img {
+    width: 320px;
+    height: auto;
+    margin: 0 auto;
+}
+
+#child-4 {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+#child-4 > img {
+    width: 320px;
+    height: auto;
+    margin: 0 auto;
+}
+
+#child-5 {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+#child-5 > img {
+    width: 320px;
+    height: auto;
+    margin: 0 auto;
+}
+
+#child-6 {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+#child-6 > img {
+    width: 320px;
+    height: auto;
+    margin: 0 auto;
 }

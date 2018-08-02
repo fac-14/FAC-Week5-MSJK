@@ -68,20 +68,20 @@ function appendPagination() {
 
 function renderXHRCallback(response) {
   for (i = 1; i < 4; i++) {
-    appendArticleWrapperElement(newsDiv1, 'div', i);
-    appendTextElement(document.getElementById(i), 'h2', response.Guardian[i-1].heading);
-    appendTextElement(document.getElementById(i), 'h3', response.Guardian[i-1].author);
-    appendTextElement(document.getElementById(i), 'h3', response.Guardian[i-1].date);
-    appendImage(document.getElementById(i), response.Guardian[i-1].img_url, 'article image');
-    appendLink(document.getElementById(i), response.Guardian[i-1].link_url, 'See full article');
+    appendArticleWrapperElement(newsDiv1, 'div', ('child-' + i));
+    appendTextElement(document.getElementById(('child-' + i)), 'h2', response.Guardian[i-1].heading);
+    appendTextElement(document.getElementById(('child-' + i)), 'h3', response.Guardian[i-1].author);
+    appendTextElement(document.getElementById(('child-' + i)), 'h3', response.Guardian[i-1].date);
+    appendImage(document.getElementById(('child-' + i)), response.Guardian[i-1].img_url, 'article image');
+    appendLink(document.getElementById(('child-' + i)), response.Guardian[i-1].link_url, 'See full article');
   };
   for (i = 4; i < 7; i++) {
-    appendArticleWrapperElement(newsDiv2, 'div', i);
-    appendTextElement(document.getElementById(i), 'h2', response.NYTimes[i-4].heading);
-    appendTextElement(document.getElementById(i), 'h3', response.NYTimes[i-4].author);
-    appendTextElement(document.getElementById(i), 'h3', response.NYTimes[i-4].date);
-    appendImage(document.getElementById(i), response.NYTimes[i-4].img_url, 'article image');
-    appendLink(document.getElementById(i), response.NYTimes[i-4].link_url, 'See full article');
+    appendArticleWrapperElement(newsDiv2, 'div', ('child-' + i));
+    appendTextElement(document.getElementById(('child-' + i)), 'h2', response.NYTimes[i-4].heading);
+    appendTextElement(document.getElementById(('child-' + i)), 'h3', response.NYTimes[i-4].author);
+    appendTextElement(document.getElementById(('child-' + i)), 'h3', response.NYTimes[i-4].date);
+    appendImage(document.getElementById(('child-' + i)), response.NYTimes[i-4].img_url, 'article image');
+    appendLink(document.getElementById(('child-' + i)), response.NYTimes[i-4].link_url, 'See full article');
   };
 }
 
