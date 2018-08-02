@@ -11,18 +11,36 @@ const contentType = {
   '.gif': 'image/gif',
 };
 
-const error500 = (res, err) => {
-  res.writeHead(500, { 'Content-Type': 'text/plain' });
+const error = (status, res, err) => {
+  res.writeHead(status, { 'Content-Type': 'text/plain' });
   res.end('server error');
-  console.log(err);
+  //console.log(err);
 };
 
 const homeRoute = (req, res) => {
-  fs.readFile(path.join(__dirname, '..', 'public', 'index.html'), (err, file) => {
-    if (err) {
-      error500(res, err);
+  fs.readFile(
+    path.join(__dirname, '..', 'public', 'index.html'),
+    (err, file) => {
+      if (err) {
+        error(500, res, err);
+      }
+      res.writeHead(200, { 'Content-Type': 'text/html' });
+      res.end(file);
     }
-    res.writeHead(200, { 'Content-Type': 'text/html' });
+  );
+};
+
+const resultsRoute = (req, res) => {
+  fs.readFile(path.join(__dirname, '..', 'public', 'dummy.json'), (err, file) => {
+    if (err) {
+      if (err.code === 'ENOENT') {
+        res.writeHead(404, { 'Content-Type': 'text/plain' });
+        res.end('Resource not found');
+      } else {
+        error(500, res, err);
+      }
+    }
+    res.writeHead(200, { 'Content-Type': 'application/json' });
     res.end(file);
   });
 };
@@ -35,13 +53,13 @@ const otherRoute = (req, res) => {
       if (err.code === 'ENOENT') {
         res.writeHead(404, { 'Content-Type': 'text/plain' });
         res.end('Resource not found');
+      } else {
+        error(500, res, err);
       }
-      error500(res, err);
     }
     res.writeHead(200, { 'Content-Type': contentType[filetype] });
     res.end(file);
   });
 };
 
-
-module.exports = { homeRoute, otherRoute };
+module.exports = { homeRoute, otherRoute, resultsRoute };
