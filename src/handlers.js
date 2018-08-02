@@ -1,5 +1,7 @@
 const fs = require('fs');
 const path = require('path');
+const makeRequests = require('./wait-for-data')
+const querystring = require('querystring');
 
 const notfound = `<!DOCTYPE html>
 <html>
@@ -55,21 +57,26 @@ const homeRoute = (req, res) => {
     }
   );
 };
+let combinedData = [];
+
+const waitForData = (res, data) => {
+  combinedData.push(data);
+  if (combinedData.length === 2) {
+    let returnedObject = {};
+    combinedData.forEach((item) => {
+      let key = Object.keys(item);
+      returnedObject[key] = item[key];
+    })
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify(returnedObject));
+  }
+}
 
 const resultsRoute = (req, res) => {
   console.log('routing to results API...');
-  fs.readFile(path.join(__dirname, '..', 'public', 'dummy.JSON'), (err, file) => {
-    if (err) {
-      if (err.code === 'ENOENT') {
-        res.writeHead(404, { 'Content-Type': 'text/html' });
-        res.end(notfound);
-      } else {
-        error(500, res, err);
-      }
-    }
-    res.writeHead(200, { 'Content-Type': 'application/json' });
-    res.end(file);
-  });
+  const query = req.url.split('=')[1];
+  combinedData = [];
+  makeRequests(res, query, waitForData);
 };
 
 const otherRoute = (req, res) => {

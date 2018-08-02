@@ -36,7 +36,7 @@ const newsDiv2 = document.getElementById('news-2');
 // GENERIC XHR
 
 function genericXHR(query, cb) {
-  const url = `/results/${query}`;
+  const url = `/results?q=${query}`;
   const xhr = new XMLHttpRequest(url, cb);
   xhr.onreadystatechange = () => {
     if (xhr.readyState === 4 && xhr.status === 200) {
