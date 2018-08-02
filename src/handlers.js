@@ -31,6 +31,7 @@ const homeRoute = (req, res) => {
 };
 
 const resultsRoute = (req, res) => {
+  console.log('routing to results API...')
   fs.readFile(path.join(__dirname, '..', 'public', 'dummy.json'), (err, file) => {
     if (err) {
       if (err.code === 'ENOENT') {
