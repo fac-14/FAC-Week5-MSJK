@@ -3,35 +3,8 @@
 const submitButton = document.getElementById('submit');
 const newsDiv1 = document.getElementById('news-1');
 const newsDiv2 = document.getElementById('news-2');
-// FOR TESTING BEFORE APIS ARE READY
-// let exampleResponse = {
-//   Guardian: [{
-//     heading: 'A news article about something relevant',
-//     author: 'Jimmy J Jackson',
-//     date: 'XX-XX-XXXX',
-//     img_url: 'url...',
-//     link_url: 'url...',
-//   }, {
-//     heading: 'A second article about something mentioning the query',
-//     author: 'Kate Beard',
-//     date: 'XX-XX-XXXX',
-//     img_url: 'url...',
-//     link_url: 'url...',
-//   }],
-//   NYTimes: [{
-//     heading: 'A news article about something relevant',
-//     author: 'Jessie Beech',
-//     date: 'XX-XX-XXXX',
-//     img_url: 'url...',
-//     link_url: 'url...',
-//   }, {
-//     heading: 'A second article about something mentioning the query',
-//     author: 'Second Author',
-//     date: 'XX-XX-XXXX',
-//     img_url: 'url...',
-//     link_url: 'url...',
-//   }],
-// };
+
+//const pageThreeButton = document.getElementById('pageThree');
 
 // GENERIC XHR
 
@@ -48,6 +21,21 @@ function genericXHR(query, cb) {
   };
   xhr.open('GET', url, true);
   xhr.send();
+}
+
+function deleteChildren() {
+  while (newsDiv1.firstChild) {
+    newsDiv1.removeChild(newsDiv1.firstChild);
+  }
+  while (newsDiv2.firstChild) {
+    newsDiv2.removeChild(newsDiv2.firstChild);
+  }
+}
+
+function appendArticleWrapperElement(parent, elementType, id) {
+  const newElement = document.createElement(elementType);
+  newElement.setAttribute('id', id)
+  parent.appendChild(newElement);
 }
 
 function appendTextElement(parent, elementType, elementTextContent) {
@@ -71,38 +59,125 @@ function appendLink(parent, href, linkText) {
   parent.appendChild(link);
 }
 
-// RENDER CALLBACK FROM XHR
+function showPageOneDivOne() {
+  const articleOne = document.getElementById('child-1');
+  const articleTwo = document.getElementById('child-2');
+  const articleThree = document.getElementById('child-3');
+  articleOne.style.display = "flex";
+  articleTwo.style.display = "none";
+  articleThree.style.display = "none";
+}
+
+function showPageTwoDivOne() {
+  const articleOne = document.getElementById('child-1');
+  const articleTwo = document.getElementById('child-2');
+  const articleThree = document.getElementById('child-3');
+  articleOne.style.display = "none";
+  articleTwo.style.display = "flex";
+  articleThree.style.display = "none";
+}
+
+function showPageThreeDivOne() {
+  const articleOne = document.getElementById('child-1');
+  const articleTwo = document.getElementById('child-2');
+  const articleThree = document.getElementById('child-3');
+  articleOne.style.display = "none";
+  articleTwo.style.display = "none";
+  articleThree.style.display = "flex";
+}
+
+function showPageOneDivTwo() {
+  const articleOne = document.getElementById('child-4');
+  const articleTwo = document.getElementById('child-5');
+  const articleThree = document.getElementById('child-6');
+  articleOne.style.display = "flex";
+  articleTwo.style.display = "none";
+  articleThree.style.display = "none";
+}
+
+function showPageTwoDivTwo() {
+  const articleOne = document.getElementById('child-4');
+  const articleTwo = document.getElementById('child-5');
+  const articleThree = document.getElementById('child-6');
+  articleOne.style.display = "none";
+  articleTwo.style.display = "flex";
+  articleThree.style.display = "none";
+}
+
+function showPageThreeDivTwo() {
+  const articleOne = document.getElementById('child-4');
+  const articleTwo = document.getElementById('child-5');
+  const articleThree = document.getElementById('child-6');
+  articleOne.style.display = "none";
+  articleTwo.style.display = "none";
+  articleThree.style.display = "flex";
+}
+
+function appendPagination() {
+  // div 1 guardian
+  const pageOneDiv1 = document.createElement('button');
+  pageOneDiv1.setAttribute('id', 'pageOneDiv1');
+  pageOneDiv1.setAttribute('onclick', 'showPageOneDivOne()');
+  pageOneDiv1.textContent = '1';
+  newsDiv1.appendChild(pageOneDiv1);
+  const pageTwoDiv1 = document.createElement('button');
+  pageTwoDiv1.setAttribute('id', 'pageTwoDiv1');
+  pageTwoDiv1.setAttribute('onclick', 'showPageTwoDivOne()');
+  pageTwoDiv1.textContent = '2';
+  newsDiv1.appendChild(pageTwoDiv1);
+  const pageThreeDiv1 = document.createElement('button');
+  pageThreeDiv1.setAttribute('id', 'pageThreeDiv1');
+  pageThreeDiv1.setAttribute('onclick', 'showPageThreeDivOne()');
+  pageThreeDiv1.textContent = '3';
+  newsDiv1.appendChild(pageThreeDiv1);
+  // div 2 nytimes
+  const pageOneDiv2 = document.createElement('button');
+  pageOneDiv2.setAttribute('id', 'pageOneDiv2');
+  pageOneDiv2.setAttribute('onclick', 'showPageOneDivTwo()');
+  pageOneDiv2.textContent = '1';
+  newsDiv2.appendChild(pageOneDiv2);
+  const pageTwoDiv2 = document.createElement('button');
+  pageTwoDiv2.setAttribute('id', 'pageTwoDiv2');
+  pageTwoDiv2.setAttribute('onclick', 'showPageTwoDivTwo()');
+  pageTwoDiv2.textContent = '2';
+  newsDiv2.appendChild(pageTwoDiv2);
+  const pageThreeDiv2 = document.createElement('button');
+  pageThreeDiv2.setAttribute('id', 'pageThreeDiv2');
+  pageThreeDiv2.setAttribute('onclick', 'showPageThreeDivTwo()');
+  pageThreeDiv2.textContent = '3';
+  newsDiv2.appendChild(pageThreeDiv2);
+}
+
+//RENDER CALLBACK FROM XHR
 
 function renderXHRCallback(response) {
-  response.Guardian.forEach((article) => {
-    appendTextElement(newsDiv1, 'h2', article.heading);
-    appendTextElement(newsDiv1, 'h3', article.author);
-    appendTextElement(newsDiv1, 'h3', article.date);
-    appendImage(newsDiv1, article.img_url, 'article image');
-    appendLink(newsDiv1, article.link_url, 'See full article');
-  });
-  response.NYTimes.forEach((article) => {
-    appendTextElement(newsDiv2, 'h2', article.heading);
-    appendTextElement(newsDiv2, 'h3', article.author);
-    appendTextElement(newsDiv2, 'h3', article.date);
-    appendImage(newsDiv2, article.img_url, 'article image');
-    appendLink(newsDiv2, article.link_url, 'See full article');
-  });
+  for (i = 1; i < 4; i++) {
+    appendArticleWrapperElement(newsDiv1, 'div', ('child-' + i));
+    appendTextElement(document.getElementById(('child-' + i)), 'h2', response.Guardian[i-1].heading);
+    appendTextElement(document.getElementById(('child-' + i)), 'h3', response.Guardian[i-1].author);
+    appendTextElement(document.getElementById(('child-' + i)), 'h3', response.Guardian[i-1].date);
+    appendImage(document.getElementById(('child-' + i)), response.Guardian[i-1].img_url, 'article image');
+    appendLink(document.getElementById(('child-' + i)), response.Guardian[i-1].link_url, 'See full article');
+  };
+  for (i = 4; i < 7; i++) {
+    appendArticleWrapperElement(newsDiv2, 'div', ('child-' + i));
+    appendTextElement(document.getElementById(('child-' + i)), 'h2', response.NYTimes[i-4].heading);
+    appendTextElement(document.getElementById(('child-' + i)), 'h3', response.NYTimes[i-4].author);
+    appendTextElement(document.getElementById(('child-' + i)), 'h3', response.NYTimes[i-4].date);
+    appendImage(document.getElementById(('child-' + i)), response.NYTimes[i-4].img_url, 'article image');
+    appendLink(document.getElementById(('child-' + i)), response.NYTimes[i-4].link_url, 'See full article');
+  };
+  appendPagination();
 }
 
 // FUNCTION TO GRAB INPUT FROM SEARCH FIELD
 
 submitButton.addEventListener('click', (event) => {
   event.preventDefault();
+  deleteChildren();
   const searchTerm = document.getElementById('input').value;
   // console.log(searchTerm);
   // Makes XHR with query and invokes render as callback
   genericXHR(searchTerm, renderXHRCallback);
 // renderXHRCallback(exampleResponse);
 });
-
-/* <h2 class="">A news article about something relevant</h2>
-<h3>Author: Jimmy</h3>
-<h3>Date: XXXXX</h3>
-<img src="web-url" alt="News Image">
-<a href="web-url" target="_blank">See full article</a> */

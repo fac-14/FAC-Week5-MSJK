@@ -6,12 +6,13 @@
 
 body {
     background-color: #ECF0F1;
+    overflow: hidden;
 }
 
 h1 {
     color: #16181F;
     text-align: center;
-    padding: 16px;
+    padding: 12px;
     font-size: 2.5rem;
     font-weight: 900;
 }
@@ -28,8 +29,15 @@ h3 {
     color: #55575C;
     text-align: center;
     padding: 8px;
-    font-size: 1rem;
+    font-size: 1.25rem;
     font-weight: 700;
+}
+a {
+    color: #2A3E62;
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: 400;
+    padding: 8px;
 }
 
 main {
@@ -37,23 +45,80 @@ main {
     flex-direction: column;
 }
 
+#pageOneDiv1 {
+    display: flex;
+    text-align: center;
+    width: 50px;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+}
+
+#pageTwoDiv1 {
+    display: flex;
+    text-align: center;
+    width: 50px;
+    position: absolute;
+    bottom: 0px;
+    left: 50px;
+}
+ 
+#pageThreeDiv1 {
+    display: flex;
+    text-align: center;
+    width: 50px;
+    position: absolute;
+    bottom: 0px;
+    left: 100px;
+}
+
+#pageOneDiv2 {
+    display: flex;
+    text-align: center;
+    width: 50px;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+}
+
+#pageTwoDiv2 {
+    display: flex;
+    text-align: center;
+    width: 50px;
+    position: absolute;
+    bottom: 0px;
+    left: 50px;
+}
+ 
+#pageThreeDiv2 {
+    display: flex;
+    text-align: center;
+    width: 50px;
+    position: absolute;
+    bottom: 0px;
+    left: 100px;
+}
+
 #search {
     text-align: center;
     background: #ECF0F1;
-    padding: 24px 0;
+    padding: 32px 0;
 }
 
 #results {
     display: flex;
-    height: 70vh;
+    min-height: 70vh;
 }
 
 #news-1,
 #news-2 {
-    width: 50%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 48%;
     padding: 48px;
-    border: 2px solid red;
     background-color: #FFFFFF;
+    position: relative;
 }
 
 #fourohfour {
@@ -69,4 +134,106 @@ main {
     height: auto;
     margin: 0 auto;
     padding: 16px;
+}
+
+#child-1 {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+#child-1 > img {
+    width: 320px;
+    height: auto;
+    margin: 0 auto;
+}
+
+#child-2 {
+    display: none;
+    flex-direction: column;
+    margin: 0 auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+#child-2 > img {
+    width: 320px;
+    height: auto;
+    margin: 0 auto;
+}
+
+#child-3 {
+    display: none;
+    flex-direction: column;
+    margin: 0 auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+#child-3 > img {
+    width: 320px;
+    height: auto;
+    margin: 0 auto;
+}
+
+#child-4 {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+#child-4 > img {
+    width: 320px;
+    height: auto;
+    margin: 0 auto;
+}
+
+#child-5 {
+    display: none;
+    flex-direction: column;
+    margin: 0 auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+#child-5 > img {
+    width: 320px;
+    height: auto;
+    margin: 0 auto;
+}
+
+#child-6 {
+    display: none;
+    flex-direction: column;
+    margin: 0 auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+#child-6 > img {
+    width: 320px;
+    height: auto;
+    margin: 0 auto;
 }
