@@ -13,6 +13,42 @@
 * I will be able to read the headline, author, date published, and see the hero image on the page
 * I will be able to click a link to read the full article
 
+## The brief
+
+_Must-haves_
+
+:white_check_mark: Use at least 1 API
+
+:o: Make your API calls from the back-end using the Request module (or one you build yourself)
+
+:white_check_mark: Your server should contain a minimum of 2 routes
+
+:white_check_mark: We expect back-end testing using Tape (test as many components as you can) and basic front-end testing.
+
+:white_check_mark: Test your server by injecting fake HTTP requests using Supertest (consider testing for 404's and 500's).
+
+:white_check_mark: Host your project on Heroku, see resources
+
+:white_check_mark: Use module.exports and require to break a single large server file into smaller modules.
+
+:white_check_mark: Consider a good server file structure based on what we have discussed over the week.
+
+:white_check_mark: Employ continuous intergration on your project with Travis or a similar tool.
+
+:white_check_mark: Use CodeCov or a similar tool for test coverage.
+
+:white_check_mark: Include Error Handling.
+
+:white_check_mark: Include a user input field on your web app 
+
+:o: ...and include server-side validation to protect your server from potentially malicious user input.
+
+_Stretch goals 😊:_
+
+:o: Create a route and functionality for a POST request.
+
+:white_check_mark: Display continuous intergration and code coverage badges on your project README.
+
 ## Stretch goals
 
 * I can choose two news sites to compare from a list of top UK, US, and EU news sites
@@ -32,9 +68,12 @@
 * Michael got worried about 99% coverage, but it's actually BRILLIANT
 * Jessie and Kate built the frontend skeleton (HTML and CSS)
 * Jessie and Kate worked on inserting data into the DOM
-* Jessie and Kate started the API response parser
 
 ### Day 2
+
+* Kate and Michael work on /results route that triggers API calls to Guardian and NYC
+* Kate and Michael create custom 404 page and redirect to it
+* Jessie and Sangita work on parser for API JSON objects
 
 ## Challenges
 
