@@ -60,7 +60,7 @@ tape('Testing 404 for non-existent file', (t) => {
 
 tape('Testing results route', (t) => {
   supertest(router)
-    .get('/results?q=searchterm')
+    .get('/results?q=brexit')
     .expect(200)
     .expect('Content-Type', /json/)
     .end((err, res) => {
@@ -72,7 +72,7 @@ tape('Testing results route', (t) => {
 
 tape('Testing results route sends JSON', (t) => {
   supertest(router)
-    .get('/results?q=json')
+    .get('/results?q=brexit')
     .expect(200)
     .expect('Content-Type', /json/)
     .end((err, res) => {
