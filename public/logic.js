@@ -20,6 +20,7 @@ function genericXHR(query, cb) {
   xhr.open('GET', url, true);
   xhr.send();
 }
+
 function deleteChildren() {
   while (newsDiv1.firstChild) {
     newsDiv1.removeChild(newsDiv1.firstChild);
@@ -27,6 +28,12 @@ function deleteChildren() {
   while (newsDiv2.firstChild) {
     newsDiv2.removeChild(newsDiv2.firstChild);
   }
+}
+
+function appendArticleWrapperElement(parent, elementType, id) {
+  const newElement = document.createElement(elementType);
+  newElement.setAttribute('id', id)
+  parent.appendChild(newElement);
 }
 
 function appendTextElement(parent, elementType, elementTextContent) {
@@ -50,23 +57,32 @@ function appendLink(parent, href, linkText) {
   parent.appendChild(link);
 }
 
-// RENDER CALLBACK FROM XHR
+function appendPagination() {
+  const pageTwo = document.createElement('button');
+  pageTwo.setAttribute('id', 'pageTwo');
+  pageTwo.textContent = '2';
+  newsDiv1.appendChild(pageTwo);
+}
+
+//RENDER CALLBACK FROM XHR
 
 function renderXHRCallback(response) {
-  response.Guardian.forEach((article) => {
-    appendTextElement(newsDiv1, 'h2', article.heading);
-    appendTextElement(newsDiv1, 'h3', article.author);
-    appendTextElement(newsDiv1, 'h3', article.date);
-    appendImage(newsDiv1, article.img_url, 'article image');
-    appendLink(newsDiv1, article.link_url, 'See full article');
-  });
-  response.NYTimes.forEach((article) => {
-    appendTextElement(newsDiv2, 'h2', article.heading);
-    appendTextElement(newsDiv2, 'h3', article.author);
-    appendTextElement(newsDiv2, 'h3', article.date);
-    appendImage(newsDiv2, article.img_url, 'article image');
-    appendLink(newsDiv2, article.link_url, 'See full article');
-  });
+  for (i = 1; i < 4; i++) {
+    appendArticleWrapperElement(newsDiv1, 'div', i);
+    appendTextElement(document.getElementById(i), 'h2', response.Guardian[i-1].heading);
+    appendTextElement(document.getElementById(i), 'h3', response.Guardian[i-1].author);
+    appendTextElement(document.getElementById(i), 'h3', response.Guardian[i-1].date);
+    appendImage(document.getElementById(i), response.Guardian[i-1].img_url, 'article image');
+    appendLink(document.getElementById(i), response.Guardian[i-1].link_url, 'See full article');
+  };
+  for (i = 4; i < 7; i++) {
+    appendArticleWrapperElement(newsDiv2, 'div', i);
+    appendTextElement(document.getElementById(i), 'h2', response.NYTimes[i-4].heading);
+    appendTextElement(document.getElementById(i), 'h3', response.NYTimes[i-4].author);
+    appendTextElement(document.getElementById(i), 'h3', response.NYTimes[i-4].date);
+    appendImage(document.getElementById(i), response.NYTimes[i-4].img_url, 'article image');
+    appendLink(document.getElementById(i), response.NYTimes[i-4].link_url, 'See full article');
+  };
 }
 
 // FUNCTION TO GRAB INPUT FROM SEARCH FIELD
@@ -80,9 +96,3 @@ submitButton.addEventListener('click', (event) => {
   genericXHR(searchTerm, renderXHRCallback);
 // renderXHRCallback(exampleResponse);
 });
-
-/* <h2 class="">A news article about something relevant</h2>
-<h3>Author: Jimmy</h3>
-<h3>Date: XXXXX</h3>
-<img src="web-url" alt="News Image">
-<a href="web-url" target="_blank">See full article</a> */
