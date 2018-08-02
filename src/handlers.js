@@ -3,6 +3,7 @@ const path = require('path');
 const makeRequests = require('./wait-for-data')
 const querystring = require('querystring');
 
+// define HTML response for 404
 const notfound = `<!DOCTYPE html>
 <html>
 <head>
@@ -70,13 +71,21 @@ const waitForData = (res, data) => {
     res.writeHead(200, { 'Content-Type': 'application/json' });
     res.end(JSON.stringify(returnedObject));
   }
+};
+
+const returnEmptySearch = (res) => {
+  res.writeHead(200, { 'Content-Type': 'application/json' });
+  res.end('{}');
 }
 
 const resultsRoute = (req, res) => {
-  console.log('routing to results API...');
   const query = req.url.split('=')[1];
   combinedData = [];
-  makeRequests(res, query, waitForData);
+  if (query) {
+    makeRequests(res, query, waitForData);
+  } else {
+    returnEmptySearch(res);
+  }
 };
 
 const otherRoute = (req, res) => {
@@ -84,6 +93,7 @@ const otherRoute = (req, res) => {
   const filetype = path.extname(filename);
   fs.readFile(path.join(__dirname, '..', 'public', filename), (err, file) => {
     if (err) {
+      // if path does not correspond to a file in the public folder
       if (err.code === 'ENOENT') {
         res.writeHead(404, { 'Content-Type': 'text/html; charset=utf-8' });
         res.end(notfound);
