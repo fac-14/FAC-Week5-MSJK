@@ -110,8 +110,8 @@ _Stretch goals 😊:_
 * After lunch we pulled all changes and set about integrating the different modules
 * After a few additional callbacks - EUREKA! 
 * ... BUT we had hit our request limit for the NYTimes in the process 😑
-* Jessie and Michael frantically tried to increase test coverage
-* Kate and Sangita wrangled a beautiful layout
+* Jessie and Michael frantically tried to increase test coverage and smashed it
+* Kate and Sangita wrangled a beautiful layout and pagination of the articles
 
 ## Challenges
 
@@ -122,4 +122,5 @@ But we did figure out how to test an asynchronous function in tape! :tada:
 ## Lessons
 
 * Travis has a case-sensitive filesystem!
-* Getting matching output from 2 different APIs doesn't always go smoothly! e.g. one source may always show an article's author, another may not. 
+* Getting matching output from 2 different APIs doesn't always go smoothly! e.g. one source may always show an article's author, another may not.
+* Group programming can be good for crucial bits so everyone is on board and understands.
