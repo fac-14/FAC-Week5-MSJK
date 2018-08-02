@@ -3,7 +3,9 @@ const responseNumber = 3;
 
 const parseGuardian = (response) => {
   const data = JSON.parse(response);
+  // Create 'parent' obj property that will hold an array of articles
   const resultObj = { Guardian: [] };
+  // loop through JSON assembling article and pushing to parent obj
   for (let i = 0; i < responseNumber; i += 1) {
     const article = {};
     article.heading = data.response.results[i].fields.headline;
@@ -11,6 +13,7 @@ const parseGuardian = (response) => {
     article.date = data.response.results[i].webPublicationDate;
     article.img_url = data.response.results[i].fields.thumbnail;
     article.link_url = data.response.results[i].fields.shortUrl;
+    // push to parent
     resultObj.Guardian.push(article);
   }
   // console.log(resultObj);
