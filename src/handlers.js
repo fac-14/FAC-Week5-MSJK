@@ -31,8 +31,8 @@ const homeRoute = (req, res) => {
 };
 
 const resultsRoute = (req, res) => {
-  console.log('routing to results API...')
-  fs.readFile(path.join(__dirname, '..', 'public', 'dummy.json'), (err, file) => {
+  console.log('routing to results API...');
+  fs.readFile(path.join(__dirname, '..', 'public', 'dummy.JSON'), (err, file) => {
     if (err) {
       if (err.code === 'ENOENT') {
         res.writeHead(404, { 'Content-Type': 'text/plain' });
