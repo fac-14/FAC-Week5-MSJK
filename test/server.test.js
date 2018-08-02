@@ -50,7 +50,7 @@ tape('Testing 404 for non-existent file', (t) => {
   supertest(router)
     .get('/nope.js')
     .expect(404)
-    .expect('Content-Type', /plain/)
+    .expect('Content-Type', /html/)
     .end((err, res) => {
       t.error(err, 'supertests');
       t.deepEqual(res.statusCode, 404, 'status should equal 404');
